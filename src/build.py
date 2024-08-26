@@ -4,7 +4,6 @@ from pathlib import Path
 import PyInstaller.__main__
 
 
-
 def build() -> None:
     # zip_file = os.path.join(Path(__file__).resolve().parent, "docker.zip")
     # docker_folder = os.path.join(Path(__file__).resolve().parent, "docker")
@@ -26,7 +25,7 @@ def build() -> None:
     script_path = os.path.join(Path(__file__).resolve().parent, "main.py")
     build_path = os.path.join(Path(__file__).resolve().parent.parent, "release")
 
-    pyi_args = [script_path, "--onefile", "--noconfirm", "--console", f"--distpath={build_path}", "--add-data=docker.zip;."]
+    pyi_args = [script_path, "--name=django_docker_builder", "--onefile", "--noconfirm", "--console", f"--distpath={build_path}", "--add-data=docker.zip;."]
 
     PyInstaller.__main__.run(
         pyi_args,
